@@ -1,0 +1,16 @@
+{
+  "name": "angular-auth",
+  "version": "0.0.0",
+  "authors": [
+    "rov01 <roverzon@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
