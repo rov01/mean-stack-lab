@@ -7,9 +7,9 @@ angular.module('app', [])
 .controller('PostCtrl', ['$scope', 'PostsSvc', 'socketio', function ($scope, PostsSvc, socketio) {
 
 
-	socketio.on('new_post',function(post){
-		$scope.posts.unshift(post)
-	})
+	// socketio.on('new_post',function(post){
+	// 	$scope.posts.unshift(post)
+	// })
 
 	// $scope.$on('post',function(_,post){
 	// 	$scope.$apply(function(){
@@ -45,7 +45,7 @@ angular.module('app', [])
 }])
 
 .factory('socketio',[ '$rootScope', function ($rootScope) {
-  var socket = io.connect();
+  // var socket = io.connect();
   return {
     on: function (eventName, callback) {
       socket.on(eventName, function () {  
@@ -73,10 +73,16 @@ angular.module('app', [])
 	(function connect(){
 		var socket = io.connect();
 		socket.on('new_post', function (data) {
+			console.log(data)
 
-		    $rootScope.$broadcast('post', data)
+		    // $rootScope.$broadcast('post', data)
 
 		 });
+
+		var chatSocket = io('localhost:3000/chat');
+		chatSocket.on('new_chat',function(data){
+			console.log(data)
+		})
 
 	})()
 	
